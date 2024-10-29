@@ -1,6 +1,4 @@
 ---
-certbot_auto_renew_user: "bigbluebutton"
-
 docker_postgres:
   user: "admin"
   password: ""
