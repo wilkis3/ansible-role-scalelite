@@ -19,5 +19,4 @@ galaxy_info:
 dependencies:
   - role: geerlingguy.docker
   - role: geerlingguy.certbot
-    vars:
-      certbot_auto_renew_user: "bigbluebutton"
+  
