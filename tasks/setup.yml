@@ -36,12 +36,12 @@
         mode: '0644'
 
     - name: Tear down existing services
-      community.docker.docker_compose:
+      community.docker.docker_compose_v2:
         project_src: /root/scalelite-run
         state: absent
 
     - name: Create and start services
-      community.docker.docker_compose:
+      community.docker.docker_compose_v2:
         project_src: /root/scalelite-run
       register: dc_output
 
@@ -58,7 +58,7 @@
     - name: Create letsencrypt paths
       block:
       - name: Stop services to link letsencrypt certs
-        community.docker.docker_compose:
+        community.docker.docker_compose_v2:
           project_src: /root/scalelite-run
           stopped: true
       - name: Make sure certbot conf folder does not exist
@@ -74,7 +74,7 @@
           group: root
           state: link
       - name: Start services again
-        community.docker.docker_compose:
+        community.docker.docker_compose_v2:
           project_src: /root/scalelite-run
           state: present
       rescue:
@@ -99,7 +99,7 @@
       ignore_errors: true
 
     - name: Restart services
-      community.docker.docker_compose:
+      community.docker.docker_compose_v2:
         project_src: /root/scalelite-run
         build: false
         restarted: true
