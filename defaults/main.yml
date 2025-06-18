@@ -29,4 +29,4 @@ docker_letsencrypt:
   # 0 no staging | 1 staging
   staging: 0
 
-bbb_scalelite_env_tempalte: ".env.j2"
+bbb_scalelite_env_template: ".env.j2"
