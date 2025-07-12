@@ -2,7 +2,7 @@
 required_packages:
   - git
   - ufw
-  - docker-compose-v2
+  - docker-compose
   - dnsutils
   - apt-transport-https
   - net-tools
