@@ -3,7 +3,9 @@
 
 - name: "Setup recordings"
   ansible.builtin.import_tasks: recording.yml
+    apply:
+      tags: recording
   when:
     - scalelite_recording is defined and scalelite_recording | bool
-  apply:
-    tags: recording
+  tags:
+    - recording

@@ -5,8 +5,6 @@
     mode: '0755'
     owner: "bigbluebutton"
     group: "scalelite-spool"
-  tags:
-    - recording_tmp_dir
 
 - name: "Create scalelite tmp-dir"
   ansible.builtin.file:
@@ -20,5 +18,3 @@
     - recording/scalelite
     - published
     - unpublished
-  tags:
-    - recording_tmp_dir_structure
