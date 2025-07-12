@@ -1,2 +1,7 @@
 ---
 - import_tasks: setup.yml
+
+- name: "Setup recordings"
+  ansible.builtin.import_tasks: recording.yml
+  when:
+    - scalelite_recording is defined and scalelite_recording | bool

@@ -1,0 +1,24 @@
+- name: "Create scalelite tmp-dir"
+  ansible.builtin.file:
+    path: "/mnt/scalelite-recordings/var/bigbluebutton"
+    state: directory
+    mode: '0755'
+    owner: "bigbluebutton"
+    group: "scalelite-spool"
+
+- name: "Include recording role"
+  ansible.builtin.import_role:
+    name: samba
+
+- name: "Create scalelite tmp-dir"
+  ansible.builtin.file:
+    path: "/mnt/scalelite-recordings/var/bigbluebutton/{{ item }}"
+    state: directory
+    mode: '0755'
+    owner: "bigbluebutton"
+    group: "scalelite-spool"
+  with_items:
+    - recording
+    - recording/scalelite
+    - published
+    - unpublished
