@@ -95,11 +95,11 @@
 
     - name: Create DB
       command:
-        cmd: docker exec -it scalelite-api bin/rake db:setup
+        cmd: "docker exec -it scalelite-api bin/rake db:setup DISABLE_DATABASE_ENVIRONMENT_CHECK=1"
       ignore_errors: true
 
     - name: Restart services
       community.docker.docker_compose_v2:
         project_src: /root/scalelite-run
-        build: false
-        restarted: true
+        build: "always"
+        state: "restarted"
