@@ -5,10 +5,8 @@
     mode: '0755'
     owner: "bigbluebutton"
     group: "scalelite-spool"
-
-- name: "Include recording role"
-  ansible.builtin.import_role:
-    name: samba
+  tags:
+    - recording_tmp_dir
 
 - name: "Create scalelite tmp-dir"
   ansible.builtin.file:
@@ -22,3 +20,5 @@
     - recording/scalelite
     - published
     - unpublished
+  tags:
+    - recording_tmp_dir_structure

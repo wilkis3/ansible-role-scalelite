@@ -60,7 +60,7 @@
       - name: Stop services to link letsencrypt certs
         community.docker.docker_compose_v2:
           project_src: /root/scalelite-run
-          stopped: true
+          state: "stopped"
       - name: Make sure certbot conf folder does not exist
         file:
           path: /root/scalelite-run/data/certbot/conf
