@@ -2,7 +2,7 @@
 - import_tasks: setup.yml
 
 - name: "Setup recordings"
-  ansible.builtin.import_tasks:
+  ansible.builtin.include_tasks:
     file: recording.yml
     apply:
       tags: recording
