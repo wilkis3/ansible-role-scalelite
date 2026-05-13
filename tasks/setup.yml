@@ -22,9 +22,9 @@
 
     - name: Clone scalelite-run
       git:
-        repo: https://github.com/ebbba-org/scalelite-run.git
+        repo: https://github.com/jfederico/scalelite-run.git
         dest: /root/scalelite-run
-        version: v1.1
+        version: master
         force: true
 
     - name: Create .env file
