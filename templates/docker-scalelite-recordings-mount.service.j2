@@ -1,0 +1,12 @@
+[Unit]
+Description="Restart Recordings Container Once If Path Exist"
+ConditionPathIsReadWrite={{ bbb_scalelite_recordings_path }}
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/docker restart scalelite-recordings
+Restart=on-failure
+RestartSec=60s
+RestartSteps=4
+RestartMaxDelaySec=360s

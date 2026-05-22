@@ -1,0 +1,22 @@
+- name: "Template service file"
+  ansible.builtin.template:
+    src: "docker-scalelite-recordings-mount.service.j2"
+    dest: "/etc/systemd/system/docker-scalelite-recordings-mount.service"
+    mode: '0644'
+    owner: "root"
+    group: "root"
+  register: bbb_scalelite_recordings_mount_service_file
+
+- name: "Systemd Deamon reload"
+  ansible.builtin.service:
+    daemon_reload: true
+  when:
+    - bbb_scalelite_recordings_mount_service_file.changed # noqa: no-handler
+
+- name: "Start docker scalelite recording mount service"
+  ansible.builtin.service:
+    name: "docker-scalelite-recordings-mount.service"
+    enabled: true
+    state: started
+  when:
+    - not ansible_check_mode
