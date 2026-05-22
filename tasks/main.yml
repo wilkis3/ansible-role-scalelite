@@ -4,4 +4,4 @@
 - name: "Enable Systemd Docker Mount Restart"
   import_tasks: mount-check.yml
   when:
-    - bbb_scalelite_docker_recordings_mount is defined and bbb_scalelite_docker_recordings_mount | bool
+    - bbb_scalelite_docker_recordings_mount | bool
