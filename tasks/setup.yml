@@ -29,7 +29,7 @@
 
     - name: Create .env file
       template:
-        src: "{{ bbb_scalelite_env_tempalte }}"
+        src: "{{ bbb_scalelite_env_template }}"
         dest: /root/scalelite-run/.env
         owner: root
         group: root
