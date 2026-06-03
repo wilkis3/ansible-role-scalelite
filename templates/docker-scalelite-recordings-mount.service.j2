@@ -1,7 +1,9 @@
 [Unit]
-Description="Restart Recordings Container Once If Path Exist"
+Description="Restart Scalelite Recordings Container"
 ConditionPathIsReadWrite={{ bbb_scalelite_recordings_path }}
 After=network.target
+{% if bbb_scalelite_recording_systemd_mount %}After={{ bbb_scalelite_recording_systemd_mount }}
+BindsTo={{ bbb_scalelite_recording_systemd_mount }}{% endif %}
 
 [Service]
 Type=oneshot
@@ -10,3 +12,6 @@ Restart=on-failure
 RestartSec=60s
 RestartSteps=4
 RestartMaxDelaySec=360s
+
+[Install]
+WantedBy=multi-user.target
