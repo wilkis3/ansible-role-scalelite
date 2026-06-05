@@ -2,8 +2,8 @@
 Description="Restart Scalelite Recordings Container"
 ConditionPathIsReadWrite={{ bbb_scalelite_recordings_path }}
 After=network.target
-{% if bbb_scalelite_recording_systemd_mount %}After={{ bbb_scalelite_recording_systemd_mount }}
-BindsTo={{ bbb_scalelite_recording_systemd_mount }}{% endif %}
+{% if bbb_scalelite_docker_recordings_systemd %}After={{ bbb_scalelite_docker_recordings_systemd }}
+BindsTo={{ bbb_scalelite_docker_recordings_systemd }}{% endif %}
 
 [Service]
 Type=oneshot
